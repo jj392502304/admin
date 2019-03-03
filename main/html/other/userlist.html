@@ -1,0 +1,232 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Tabels</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords" content=""/>
+    <script type="application/x-javascript"> addEventListener("load", function () {
+        setTimeout(hideURLbar, 0);
+    }, false);
+
+    function hideURLbar() {
+        window.scrollTo(0, 1);
+    }
+
+    function quanxuan(value) {
+            if (value.checked) {
+                $("input[type='checkbox']").each(function() {
+                    this.checked = value.checked;
+                });
+            } else {
+                $("input[type='checkbox']").each(function() {
+                    this.checked = value.checked;
+                });
+            }
+
+    }
+
+    </script>
+    <link href="../../css/person.css" rel='stylesheet' type='text/css'/>
+    <!-- Bootstrap Core CSS -->
+    <link href="../../css/bootstrap/css/bootstrap.css" rel='stylesheet' type='text/css'/>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../css/bootstrap/css/morris.css" type="text/css"/>
+    <!-- Graph CSS -->
+    <link href="../../css/bootstrap/css/font-awesome.css" rel="stylesheet">
+    <!-- jQuery -->
+    <script src="../../js/jquery-3.3.1.min.js"></script>
+
+    <script src="../../js/htmljs/public_main.js"></script>
+
+    <!-- //jQuery -->
+    <!-- tables -->
+    <!-- //tables -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:700,500,300,100italic,100,400' rel='stylesheet'
+          type='text/css'/>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <!-- lined-icons -->
+    <link rel="stylesheet" href="../../css/bootstrap/css/icon-font.min.css" type='text/css'/>
+    <link rel="stylesheet" href="../../css/person.css" type='text/css'/>
+    <style type="text/css">
+    </style>
+    <!-- //lined-icons -->
+</head>
+<body>
+<div class="page-container">
+
+
+    <h3>会员管理</h3>
+    <div class="head_div">
+        <input type="text" id="select1" name="select" class="in_select">
+        <button class="btn btn-info" onclick="chaxun()">分类名称查询</button>
+        <!--<button class="btn btn-large btn-primary add" onclick="add1()">添加</button>-->
+        <button class="btn btn-large btn-primary add" style="background-color: red" onclick="delAll()">批量删除</button>
+        <a href="javascript:history.go(0)"><button class="btn btn-large btn-primary add" style="background-color: dodgerblue" >刷新</button></a>
+        <!--<select id="kind_select" onchange="findbyKind()" class="m-wrap" style="width:200px;margin-left: 20px">-->
+            <!--    <option value=""  disabled selected hidden>根据类型查询</option>-->
+        <!--</select>-->
+
+    </div>
+    <div id="table_div" class="table_div">
+        <table id="table" class="table table-bordered">
+            <thead>
+            <tr>
+                <th><input type="checkbox" id="xxx" onclick="quanxuan(this)"></th>
+                <th width="25%">账号</th>
+                <th>注册时间</th>
+                <th>昵称</th>
+                <th>性别</th>
+                <th>年龄</th>
+                <th>邮箱</th>
+                <th>手机号</th>
+                <th>地址</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody id="tb">
+            <tr>
+                <td><input type="checkbox" name="checkxx"></td>
+                <td>13012257507</td>
+                <td>2018-12-27</td>
+                <td>111111</td>
+                <td>女</td>
+                <td>19</td>
+                <td>bbbbb@qq.com</td>
+                <td>13012257507</td>
+                <td>bbbbbbb</td>
+                <td>
+                    <button class="btn">删除</button>
+                    <button class="btn">修改</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="page">
+        <ul class='pagination'>
+            <li><a href='#'>&laquo;</a></li>
+            <li><a href='#'>1</a></li>
+            <li><a href='#'>2</a></li>
+            <li><a href='#'>3</a></li>
+            <li><a href='#'>&raquo;</a></li>
+        </ul>
+    </div>
+</div>
+
+<script src="../../js/jquery.nicescroll.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="../../js/bootstrap.js"></script>
+<script src="../../js/htmljs/userlist.js"></script>
+<!-- /Bootstrap Core JavaScript -->
+
+<!--  修改-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">添加</h4>
+            </div>
+            <div class="modal-body">
+                <div class="div_mo"><label>类名：</label><input type="text" id="name" class="input-lg"></div>
+                <div class="div_mo">
+                    <label>父类：</label>
+                    <select class="select1" id="fulei">
+                        <option value="1">家用净水器</option>
+                        <option value="2">商用用净水器</option>
+                    </select>
+                </div>
+                <!--<div class="div_mo">-->
+                    <!--<label>性别　：</label>-->
+                    <!--<select class="select1" id="xingble">-->
+                        <!--<option>男</option>-->
+                        <!--<option>女</option>-->
+                    <!--</select>-->
+                <!--</div>-->
+                <!--<div class="div_mo"><label>手机　：</label><input type="number" class="input-lg" id="phone"/></div>-->
+                <!--<div class="div_mo"><label>邮箱　：</label><input type="email" class="input-lg" id="em"/></div>-->
+                <!--<div class="div_mo"><label>中文名：</label><input type="text" class="input-lg" id="cname"/></div>-->
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" onclick="add()">提交更改</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel2">修改</h4>
+            </div>
+            <div class="modal-body">
+                <div class="div_mo"><label>类名：</label><input type="text" id="name1" class="input-lg"></div>
+                <input type="text" id="id" value="" hidden class="input-lg">
+                <div class="div_mo">
+                    <label>父类：</label>
+                    <select class="select1" id="fulei1">
+                        <option value="1">家用净水器</option>
+                        <option value="2">商用用净水器</option>
+                    </select>
+                </div>
+                <!--<div class="div_mo">-->
+                <!--<label>性别　：</label>-->
+                <!--<select class="select1" id="xingble">-->
+                <!--<option>男</option>-->
+                <!--<option>女</option>-->
+                <!--</select>-->
+                <!--</div>-->
+                <!--<div class="div_mo"><label>手机　：</label><input type="number" class="input-lg" id="phone"/></div>-->
+                <!--<div class="div_mo"><label>邮箱　：</label><input type="email" class="input-lg" id="em"/></div>-->
+                <!--<div class="div_mo"><label>中文名：</label><input type="text" class="input-lg" id="cname"/></div>-->
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" onclick="up1()">提交更改</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+<!--  添加-->
+<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel1">修改</h4>
+            </div>
+            <div class="modal-body">
+                <div class="div_mo"><label>账号：</label><input type="text" id="account" class="input-lg"></div>
+                <div class="div_mo"><label>昵称：</label><input type="text" class="input-lg" id="cname"/></div>
+                <div class="div_mo">
+                    <label>性别：</label>
+                    <select class="select1" id="xingble">
+                        <option value="男">男</option>
+                        <option value="女">女</option>
+                    </select>
+                </div>
+                <div class="div_mo"><label>年龄：</label><input type="number" class="input-lg" id="age"/></div>
+                <div class="div_mo"><label>手机：</label><input type="number" class="input-lg" id="phone"/></div>
+                <div class="div_mo"><label>邮箱：</label><input type="email" class="input-lg" id="em1"/></div>
+                <div class="div_mo"><label>住址：</label><input type="text" class="input-lg" id="address"/></div>
+                <input type="text" class="input-lg" id="uid" hidden/>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" onclick="tianjia()">提交更改</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+</body>
+</html>

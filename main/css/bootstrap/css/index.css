@@ -1,0 +1,47 @@
+.loadingModal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+#yzm{
+  width:120px;
+  height:50px;
+  line-height:50px;
+  font-size: 40px;
+  margin:15px auto;
+  background-color:#eee;
+  text-align:center;
+  color:red;
+  float: left;
+}
+#yzm1{
+  width:100px;
+  height:50px;
+  line-height:50px;
+  font-size: 30px;
+  background-color:#eee;
+  text-align:center;
+  color:red;
+}
+p{
+  width:75px;
+  height:30px;
+  margin:0 auto;
+}
+.modal-footer1{
+  /*margin: 30px;*/
+  text-align: center;
+
+}
+.modal-footer2{
+  margin-top: 140px;
+  text-align: center;
+
+}
+.login{
+  font-size: 25px;
+}
+.sss{
+  border: 0px none;
+}
