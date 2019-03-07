@@ -59,13 +59,15 @@
     <h3>未付款订单管理</h3>
     <div class="head_div">
         <!--<input type="text" id="select1" name="select" class="in_select">-->
-        <!--<button class="btn btn-info" onclick="chaxun()">分类名称查询</button>-->
-        <button class="btn btn-large btn-primary add" onclick="add1()" style="margin-bottom: 10px">添加</button>
-        <button class="btn btn-large btn-primary add" style="background-color: red;margin-bottom: 10px"
+        <input type="text" id="s_text" class="input-sm" style="margin-left:50px;margin-bottom: 10px;"
+               placeholder="请输入订单号或者买家账号">
+        <button class="btn btn-info" onclick="chaxun()">查询</button>
+        <!--<button class="btn btn-large btn-primary add" onclick="add1()">添加</button>-->
+        <button class="btn btn-large btn-primary add" style="background: red"
                 onclick="delAll()">批量删除
         </button>
         <a href="javascript:history.go(0)">
-            <button class="btn btn-large btn-primary add" style="background-color: dodgerblue;margin-bottom: 10px">刷新
+            <button class="btn btn-large btn-primary add" style="background: greenyellow">刷新
             </button>
         </a>
         <!--<select id="kind_select" onchange="findbyKind()" class="m-wrap" style="width:200px;margin-left: 20px">-->
@@ -78,11 +80,15 @@
             <thead>
             <tr>
                 <th><input type="checkbox" id="xxx" onclick="quanxuan(this)"></th>
-                <th width="25%">商品编号</th>
-                <th>简介</th>
-                <th>商品名称</th>
-                <th>价格</th>
-                <th>图片</th>
+                <th width="25%">订单编号</th>
+                <th>买家账号</th>
+                <th>支付金额</th>
+                <th>状态</th>
+                <th>创建时间</th>
+                <th>修改时间</th>
+                <th>买家留言</th>
+                <th>买家收货人</th>
+                <th>买家收货地址</th>
                 <th>操作</th>
             </tr>
             </thead>
@@ -94,23 +100,28 @@
                 <td>bbbbbbb</td>
                 <td>bbbbbbb</td>
                 <td>bbbbbbb</td>
+                <td>bbbbbbb</td>
+                <td>bbbbbbb</td>
+                <th>买家收货人</th>
+                <th>买家收货人</th>
                 <td>
                     <button class="btn">删除</button>
-                    <!--<button class="btn">修改</button>-->
+                    <button class="btn">修改</button>
+                    <button class="btn">详情</button>
                 </td>
             </tr>
             </tbody>
         </table>
     </div>
-    <!--<div id="page">-->
-    <!--<ul class='pagination'>-->
-    <!--<li><a href='#'>&laquo;</a></li>-->
-    <!--<li><a href='#'>1</a></li>-->
-    <!--<li><a href='#'>2</a></li>-->
-    <!--<li><a href='#'>3</a></li>-->
-    <!--<li><a href='#'>&raquo;</a></li>-->
-    <!--</ul>-->
-    <!--</div>-->
+    <div id="page" style="top: 80%;left:50%;position: absolute">
+        <!--<ul class='pagination'>-->
+        <!--<li><a href='#'>&laquo;</a></li>-->
+        <!--<li><a href='#'>1</a></li>-->
+        <!--<li><a href='#'>2</a></li>-->
+        <!--<li><a href='#'>3</a></li>-->
+        <!--<li><a href='#'>&raquo;</a></li>-->
+        <!--</ul>-->
+    </div>
 </div>
 
 <script src="../../js/jquery.nicescroll.js"></script>
@@ -123,40 +134,40 @@
 <!--  修改-->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">
+        <div class="modal-content" style="width: 1000px">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">添加</h4>
+                <h4 class="modal-title" id="myModalLabel">详情</h4>
             </div>
             <div class="modal-body">
-                <div class="div_mo"><label>类名：</label><input type="text" id="name" class="input-lg"></div>
-                <div class="div_mo">
-                    <label>父类：</label>
-                    <select class="select1" id="fulei">
-                        <option value="1">家用净水器</option>
-                        <option value="2">商用用净水器</option>
-                    </select>
+                <table class="table">
+                    <thead>
+                    <th>商品编号</th>
+                    <th>商品名称</th>
+                    <th>购买数量</th>
+                    <th>商品单价</th>
+                    <th>操作</th>
+                    </thead>
+                    <tbody id="tb1">
+                    <tr>
+                        <td>12345</td>
+                        <td>净水器</td>
+                        <td>1</td>
+                        <td><input type="text" value="20" style="width: 50px;text-align: center;border: 0"></td>
+                        <td>
+                            <button class="btn-danger btn-xs">删除</button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" id="ax" class="btn btn-primary" onclick="update()">提交更改</button>
                 </div>
-                <!--<div class="div_mo">-->
-                <!--<label>性别　：</label>-->
-                <!--<select class="select1" id="xingble">-->
-                <!--<option>男</option>-->
-                <!--<option>女</option>-->
-                <!--</select>-->
-                <!--</div>-->
-                <!--<div class="div_mo"><label>手机　：</label><input type="number" class="input-lg" id="phone"/></div>-->
-                <!--<div class="div_mo"><label>邮箱　：</label><input type="email" class="input-lg" id="em"/></div>-->
-                <!--<div class="div_mo"><label>中文名：</label><input type="text" class="input-lg" id="cname"/></div>-->
-            </div>
-
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                <button type="button" class="btn btn-primary" onclick="add()">提交更改</button>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal -->
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
 </div>
-
 
 <div class="modal fade" id="addmotai" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -228,24 +239,11 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel1">修改</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="false">&times;</button>
+                <h4 class="modal-title" id="myModalLabel1">发货</h4>
             </div>
             <div class="modal-body">
-                <div class="div_mo"><label>账号：</label><input type="text" id="account" class="input-lg"></div>
-                <div class="div_mo"><label>昵称：</label><input type="text" class="input-lg" id="cname"/></div>
-                <div class="div_mo">
-                    <label>性别：</label>
-                    <select class="select1" id="xingble">
-                        <option value="男">男</option>
-                        <option value="女">女</option>
-                    </select>
-                </div>
-                <div class="div_mo"><label>年龄：</label><input type="number" class="input-lg" id="age"/></div>
-                <div class="div_mo"><label>手机：</label><input type="number" class="input-lg" id="phone"/></div>
-                <div class="div_mo"><label>邮箱：</label><input type="email" class="input-lg" id="em1"/></div>
-                <div class="div_mo"><label>住址：</label><input type="text" class="input-lg" id="address"/></div>
-                <input type="text" class="input-lg" id="uid" hidden/>
+                aaaaaaaaaaaaaaa
             </div>
 
             <div class="modal-footer">
@@ -256,5 +254,32 @@
     </div><!-- /.modal -->
 </div>
 
+
+<div class="modal fade" id="fahuo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="fahuo1">发货</h4>
+            </div>
+            <div class="modal-body">
+                <input type="text" hidden id="xid">
+                <div class="input-group">
+                    <span class="input-group-addon">请输入快递单号</span>
+                    <input type="text" class="form-control" id="postCode">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">请输入快递类型</span>
+                    <input type="text" class="form-control" id="postType">
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary" onclick="kuaidi()">提交更改</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+</div>
 </body>
 </html>
