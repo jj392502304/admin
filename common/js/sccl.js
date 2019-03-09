@@ -518,6 +518,15 @@ $(function () {
                     "order": "1",
                     "isHeader": "0",
                     "childMenus": ""
+                },{
+                    "id": "100000",
+                    "name": "公告管理",
+                    "parentId": "929",
+                    "url": "../main/html/other/gonggao.html",
+                    "icon": "",
+                    "order": "1",
+                    "isHeader": "0",
+                    "childMenus": ""
                 }
             ]
         },

@@ -213,6 +213,8 @@ function delAll() {
 }
 
 function add1() {
+    $("#name1").val("");
+    $("#fulei").val(1);
     $('#myModal').modal({
         show: true,
         backdrop: 'static'
@@ -220,8 +222,7 @@ function add1() {
 }
 
 function add() {
-    $("#name").val("");
-    $("#fulei").val("");
+
     var name = $("#name").val();
     var fulei = $("#fulei").val();
     if (name.length == 0) {
