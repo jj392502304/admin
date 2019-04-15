@@ -8,7 +8,7 @@
 	<meta http-equiv="Cache-Control" content="no-siteapp" />
 	<meta name="keywords" content="scclui框架">
 	<meta name="description" content="scclui为轻量级的网站后台管理系统模版。">
-    <title>首页</title>
+    <title>净水器在线销售后台管理系统</title>
 	
 	<link rel="stylesheet" href="../common/css/sccl.css">
 	<link rel="stylesheet" type="text/css" href="../common/skin/qingxin/skin.css" id="layout-skin"/>
@@ -18,16 +18,15 @@
   <body>
 	<div class="layout-admin">
 		<header class="layout-header">
-			<span class="header-logo">系统框架</span> 
+			<span class="header-logo">净水器在线销售后台管理系统</span>
 			<a class="header-menu-btn" href="javascript:;"><i class="icon-font">&#xe600;</i></a>
 			<ul class="header-bar">
 				<li class="header-bar-role"><a href="javascript:;">超级管理员</a></li>
 				<li class="header-bar-nav">
 					<a href="javascript:;">admin<i class="icon-font" style="margin-left:5px;">&#xe60c;</i></a>
 					<ul class="header-dropdown-menu">
-						<li><a href="javascript:;">个人信息</a></li>
-						<li><a href="javascript:;">切换账户</a></li>
-						<li><a href="javascript:;">退出</a></li>
+						<li><a href="javascript:;">修改手机号码</a></li>
+						<li><a href="javascript:logout();">退出</a></li>
 					</ul>
 				</li>
 				<li class="header-bar-nav"> 
@@ -63,10 +62,21 @@
 				<iframe class="body-iframe" name="iframe0" width="100%" height="99%" src="home.html" frameborder="0" data-id="home.html" seamless></iframe>
 			</div>
 		</section>
-		<div class="layout-footer">@2016 0.1 www.mycodes.net</div>
+		<div class="layout-footer">@2019 my 毕业设计</div>
 	</div>
 	<script type="text/javascript" src="../common/lib/jquery-1.9.0.min.js"></script>
 	<script type="text/javascript" src="../common/js/sccl.js"></script>
 	<script type="text/javascript" src="../common/js/sccl-util.js"></script>
   </body>
+<script>
+	function logout() {
+	    console.log(location.host)
+       if(confirm("是否真的退出？")){
+           sessionStorage.removeItem("login");
+           var url="http://"+location.host+"/sccl-admin/page/login.html";
+
+           top.location.href=url;
+	   }
+    }
+</script>
 </html>

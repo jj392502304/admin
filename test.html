@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TEST</title>
+</head>
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<body>
+    <button id="btn">点击</button>
+</body>
+<script>
+    $(function () {
+        $("#btn").click(function () {
+           var str= "<html>"+
+            "<body>"+
+            "<p>这是段落。</p>"+
+            "<p>这是段落。</p>"+
+            "<p>这是段落。</p>"+
+            "<p>段落元素由 p 标签定义。</p> "+
+            "</body>"+
+            "</html>";
+            window.opener.document.getElementById("");
+            var newWin = window.open('', '_blank');
+            console.log(newWin)
+            newWin.document.write(str);
+        })
+    })
+</script>
+</html>

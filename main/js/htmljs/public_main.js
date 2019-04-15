@@ -1,5 +1,12 @@
 const  ReqPath="http://localhost:8082";
-
+var login=JSON.parse(sessionStorage.getItem("login"));
+$(function () {
+        if(login==null){
+            alert("请先登录！")
+            var url="http://"+location.host+"/sccl-admin/page/login.html";
+           top.location.href=url;
+        }
+})
 function GetRequest() {
     var url = location.search; //获取url中"?"符后的字串
     var theRequest = new Object();
